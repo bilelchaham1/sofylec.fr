@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SOFYLEC — Création d’entreprise.">
+<meta name="description" content="SOFYLEC vous accompagne dans la création de votre entreprise et la mise en place de votre organisation administrative.">
 <title>Création d’entreprise | SOFYLEC</title>
 <style>
 
@@ -437,38 +436,157 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
 }
 
 
-.detail-hero{background:#202225;color:#fff;padding:110px 7% 95px;position:relative;overflow:hidden}
-.detail-hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-180px;top:-220px;box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.02)}
-.detail-inner{max-width:1180px;margin:auto;position:relative;z-index:1}
-.detail-kicker{text-transform:uppercase;letter-spacing:4px;font-size:12px;color:#bfc1c4;font-weight:700;margin-bottom:20px}
-.detail-hero h1{font-size:clamp(42px,6vw,76px);line-height:1.02;max-width:850px;margin-bottom:25px}
-.detail-hero p{font-size:18px;line-height:1.8;color:#d7d7d7;max-width:760px}
-.detail-section{padding:90px 7%;background:#fff}
-.detail-section.alt{background:#f4f4f4}
-.detail-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1.6fr;gap:70px}
-.detail-section h2{font-size:38px;line-height:1.15;margin-bottom:18px;color:#202225}
-.detail-section .lead{font-size:17px;line-height:1.8;color:#666}
-.detail-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.detail-card{padding:30px;background:#fff;border:1px solid #e2e2e2;transition:.25s ease}
-.detail-section:not(.alt) .detail-card{background:#f7f7f7}
-.detail-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
-.detail-card h3{font-size:20px;margin-bottom:10px;color:#202225}
-.detail-card p{font-size:15px;line-height:1.7;color:#666}
-.detail-cta{background:#202225;color:#fff;padding:80px 7%;text-align:center}
-.detail-cta h2{font-size:40px;margin-bottom:18px}
-.detail-cta p{color:#d5d5d5;max-width:650px;margin:0 auto 30px;line-height:1.7}
-.detail-cta a{display:inline-block;background:#fff;color:#202225;padding:16px 26px;font-weight:700}
-.back-link{display:inline-block;margin-top:28px;color:#c9c9c9;font-size:14px}
-@media(max-width:800px){
-.detail-grid{grid-template-columns:1fr;gap:35px}
-.detail-cards{grid-template-columns:1fr}
-.detail-hero{padding:80px 6% 70px}
-.detail-section{padding:70px 6%}
+.creation-hero{
+    background:#e4e4e4;
+    padding:95px 7% 80px;
+}
+.creation-hero-inner{max-width:1280px;margin:auto}
+.creation-hero .section-label{margin-bottom:18px}
+.creation-hero h1{
+    font-size:clamp(48px,6vw,78px);
+    line-height:1;
+    letter-spacing:-2px;
+    margin-bottom:28px;
+    color:#202225;
+}
+.creation-hero p{
+    max-width:850px;
+    font-size:20px;
+    line-height:1.75;
+    color:#55575a;
+}
+.creation-intro{
+    padding:90px 7%;
+    background:#fff;
+}
+.creation-intro-inner{
+    max-width:1280px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:80px;
+    align-items:center;
+}
+.creation-intro h2{
+    font-size:clamp(34px,4vw,54px);
+    line-height:1.12;
+    margin-bottom:25px;
+}
+.creation-intro .intro-text{
+    font-size:18px;
+    line-height:1.85;
+    color:#606266;
+}
+.creation-visual{
+    min-height:360px;
+    background:#202225;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+.creation-visual:before,.creation-visual:after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+}
+.creation-visual:before{width:390px;height:390px}
+.creation-visual:after{width:270px;height:270px}
+.creation-visual svg{width:250px;height:250px;position:relative;z-index:2}
+ .creation-confidence{
+    background:#fff;
+    padding:85px 7% 70px;
+}
+.creation-inner{max-width:1280px;margin:auto}
+.creation-heading{display:none}
+.confidence-grid{
+    display:grid;
+    grid-template-columns:1fr 1.25fr;
+    gap:65px;
+    align-items:start;
+}
+.confidence-grid:before{
+    content:"";
+    grid-column:1;
+    grid-row:1 / span 2;
+    width:100%;
+    min-height:390px;
+    background:#f1f1f1;
+    border-radius:50%;
+    align-self:center;
+}
+.confidence-card{
+    background:transparent;
+    padding:0;
+    border:0;
+}
+.confidence-card .number{display:none}
+.confidence-card h3{font-size:21px;margin-bottom:14px}
+.confidence-card p{font-size:16px;line-height:1.65;color:#555}
+.confidence-card:nth-child(1),
+.confidence-card:nth-child(2),
+.confidence-card:nth-child(3){grid-column:2}
+.confidence-card:nth-child(1){grid-row:1}
+.confidence-card:nth-child(2){grid-row:2;margin-top:2px}
+.confidence-card:nth-child(3){grid-row:3;margin-top:2px}
+.creation-process{
+    padding:15px 7% 85px;
+    background:#fff;
+}
+.process-header{display:none}
+.process-list{
+    max-width:1280px;
+    margin:auto;
+    border:0;
+}
+.process-item{
+    display:block;
+    padding:0 0 6px;
+    border:0;
+}
+.process-number{display:inline;font-size:16px;font-weight:400;color:#666;margin-right:8px}
+.process-item h3{display:inline;font-size:16px;font-weight:400;margin:0;line-height:1.6}
+.process-item p{display:none}
+.creation-note{background:#e5e5e5}
+@media(max-width:850px){
+    .confidence-grid{grid-template-columns:1fr;gap:35px}
+    .confidence-grid:before{display:none}
+    .confidence-card:nth-child(1),.confidence-card:nth-child(2),.confidence-card:nth-child(3){grid-column:1;grid-row:auto}
+}
+.creation-note{
+    background:#202225;
+    color:#fff;
+    padding:80px 7%;
+}
+.creation-note-inner{
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+}
+.creation-note h2{font-size:clamp(34px,4vw,50px);margin-bottom:20px}
+.creation-note p{max-width:760px;margin:0 auto 30px;color:#d3d3d3;line-height:1.8}
+.creation-note a{
+    display:inline-block;
+    padding:16px 27px;
+    background:#fff;
+    color:#202225;
+    font-size:14px;
+    font-weight:700;
+}
+@media(max-width:850px){
+    .creation-intro-inner{grid-template-columns:1fr;gap:45px}
+    .confidence-grid{grid-template-columns:1fr}
+    .process-list{grid-template-columns:1fr}
+    .process-item:nth-child(odd){border-right:0;padding-right:0}
+    .process-item:nth-child(even){padding-left:0}
 }
 
 </style>
 </head>
 <body>
+
 <header>
     <div class="header-container">
         <a href="index.html" class="logo-frame">
@@ -476,9 +594,8 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
         </a>
 
         <nav>
-            <a href="index.html">Accueil</a>
             <div class="nav-dropdown">
-<a href="#services" class="nav-dropdown-link">Nos services</a>
+<a href="index.html#services" class="nav-dropdown-link">Nos services</a>
 <div class="dropdown-menu">
 <a href="creation-entreprise.html">Création d’entreprise</a>
 <a href="gestion-quotidien.html">Gestion au quotidien</a>
@@ -489,45 +606,149 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
 </div>
 </div>
 
-            <a href="#societe">La société</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#actualites">Actualités</a>
-            <a href="#contact" class="contact-button">Nous contacter</a>
+            <a href="index.html#societe">La société</a>
+            <a href="index.html#solutions">Solutions</a>
+            <a href="index.html#actualites">Actualités</a>
+            <a href="index.html#contact" class="contact-button">Nous contacter</a>
         </nav>
     </div>
 </header>
+
 <main>
-<section class="detail-hero">
-<div class="detail-inner">
-<div class="detail-kicker">SOFYLEC — Société de Gestion Administrative</div>
-<h1>Création d’entreprise</h1>
-<p>Un accompagnement administratif pour démarrer votre activité sur des bases solides.</p>
-<a href="index.html#services" class="back-link">← Retour à nos services</a>
-</div>
+
+<section class="creation-hero" style="background:#e5e5e5;min-height:155px;padding:0 7%;display:flex;align-items:flex-start;justify-content:center;text-align:center;">
+    <div class="creation-hero-inner" style="max-width:1150px;padding-top:2px;">
+        <p style="font-size:21px;line-height:1.45;color:#111;">Faire appel à un Expert-Comptable, <strong>c’est mettre toutes les chances de son côté pour réussir.</strong></p>
+    </div>
 </section>
 
-<section class="detail-section">
-<div class="detail-grid">
-<div>
-<div class="section-label">Notre accompagnement</div>
-<h2>Une organisation claire et professionnelle.</h2>
-<p class="lead">Nous vous accompagnons dans les tâches administratives liées à votre activité, avec une approche structurée, simple et adaptée à vos besoins.</p>
-</div>
-<div class="detail-cards">
-<article class="detail-card"><h3>Préparer votre projet</h3><p>Organisation des premières démarches, collecte des informations et préparation des documents nécessaires.</p></article>
-<article class="detail-card"><h3>Structurer les formalités</h3><p>Un suivi clair des différentes étapes administratives liées au lancement de votre entreprise.</p></article>
-<article class="detail-card"><h3>Mettre en place votre organisation</h3><p>Création d’une organisation administrative adaptée dès le démarrage pour gagner du temps.</p></article>
-<article class="detail-card"><h3>Vous accompagner dans la durée</h3><p>Une continuité dans la gestion administrative après la création de votre entreprise.</p></article>
-</div>
-</div>
+<section class="creation-intro" style="padding:105px 0 15px;background:#fff;">
+    <div class="creation-intro-inner" style="max-width:1280px;grid-template-columns:1fr 1.25fr;gap:55px;align-items:center;">
+        <div class="creation-visual" aria-hidden="true" style="min-height:390px;background:transparent;overflow:visible;">
+            <svg viewBox="0 0 420 360" style="width:100%;height:360px;max-width:430px;">
+                <circle cx="190" cy="180" r="150" fill="#f0f0f0"/>
+                <rect x="155" y="80" width="115" height="155" rx="8" fill="#fff" stroke="#777" stroke-width="3"/>
+                <rect x="170" y="96" width="65" height="8" rx="4" fill="#777"/>
+                <rect x="170" y="120" width="75" height="7" rx="3" fill="#aaa"/>
+                <rect x="170" y="140" width="62" height="7" rx="3" fill="#aaa"/>
+                <rect x="170" y="160" width="72" height="7" rx="3" fill="#aaa"/>
+                <circle cx="250" cy="190" r="27" fill="#e5e5e5"/>
+                <path d="M238 190l8 8 17-20" fill="none" stroke="#35a853" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M70 230h65" stroke="#777" stroke-width="3"/>
+                <path d="M75 220l25-28 20 18 30-45" fill="none" stroke="#777" stroke-width="3"/>
+                <path d="M75 250h48M75 265h38" stroke="#999" stroke-width="3"/>
+                <circle cx="85" cy="145" r="22" fill="#e8b18a"/>
+                <path d="M85 168v70" stroke="#111111" stroke-width="10" stroke-linecap="round"/>
+                <path d="M85 185l-25 24M85 185l25 18" stroke="#111111" stroke-width="8" stroke-linecap="round"/>
+                <path d="M85 238l-18 45M85 238l20 45" stroke="#55575a" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="58" cy="210" r="4" fill="#e8b18a"/>
+                <circle cx="112" cy="204" r="4" fill="#e8b18a"/>
+            </svg>
+        </div>
+        <div>
+            <h2 style="font-size:21px;margin-bottom:18px;">Confier votre projet à notre cabinet, c’est :</h2>
+            <ul style="margin:0 0 40px 22px;color:#555;font-size:17px;line-height:1.5;">
+                <li>Un accompagnement par des spécialistes</li>
+                <li>Un bouquet de services pour bien démarrer (outils, kits, logiciels)</li>
+                <li>Un tarif sans surprise</li>
+            </ul>
+            <h2 style="font-size:21px;margin-bottom:15px;">Notre accompagnement :</h2>
+            <ol style="margin:0 0 0 22px;color:#555;font-size:17px;line-height:1.45;">
+                <li>Un rendez-vous conseil</li>
+                <li>La collecte des informations</li>
+                <li>La formalisation de votre business plan</li>
+                <li>La recherche de financement</li>
+                <li>La rédaction des statuts et les démarches administratives</li>
+                <li>L’organisation administrative et comptable</li>
+                <li>La mise en place d’outils de gestion</li>
+                <li>Le pilotage de vos premiers mois d’activité</li>
+                <li>Votre diagnostic 1ère année</li>
+            </ol>
+        </div>
+    </div>
 </section>
 
-<section class="detail-cta">
-<h2>Besoin d’un accompagnement ?</h2>
-<p>Parlons de votre entreprise et de vos besoins administratifs. SOFYLEC vous accompagne avec une organisation adaptée à votre activité.</p>
-<a href="index.html#contact">Nous contacter</a>
+<section class="creation-confidence" style="display:none;">
+    <div class="creation-inner">
+        <div class="creation-heading">
+            <div class="section-label">Pourquoi SOFYLEC ?</div>
+            <h2>Confier votre projet à SOFYLEC, c’est :</h2>
+            <p>Un accompagnement administratif pensé pour vous aider à avancer avec méthode, clarté et sérénité.</p>
+        </div>
+
+        <div class="confidence-grid">
+            <article class="confidence-card">
+                <div class="number">01</div>
+                <h3>Un accompagnement par des spécialistes</h3>
+                <p>Un interlocuteur pour vous aider à structurer les différentes étapes administratives de votre projet.</p>
+            </article>
+            <article class="confidence-card">
+                <div class="number">02</div>
+                <h3>Un bouquet de services pour bien démarrer</h3>
+                <p>Des outils, méthodes et solutions adaptés à vos besoins pour mettre en place une organisation efficace.</p>
+            </article>
+            <article class="confidence-card">
+                <div class="number">03</div>
+                <h3>Un tarif clair</h3>
+                <p>Une prestation présentée clairement, avec une organisation transparente et adaptée à votre projet.</p>
+            </article>
+        </div>
+    </div>
 </section>
+
+<section class="creation-process" style="display:none;">
+    <div class="process-header">
+        <div class="section-label">Notre accompagnement</div>
+        <h2>Un parcours en 8 étapes.</h2>
+        <p>De la première réflexion à vos premiers mois d’activité, SOFYLEC vous accompagne dans la structuration administrative de votre entreprise.</p>
+    </div>
+
+    <div class="process-list">
+        <article class="process-item">
+            <div class="process-number">01</div>
+            <div><h3>Un rendez-vous conseil</h3><p>Échange autour de votre projet, de vos objectifs et de vos besoins.</p></div>
+        </article>
+        <article class="process-item">
+            <div class="process-number">02</div>
+            <div><h3>La collecte des informations</h3><p>Réunir et organiser les informations nécessaires à la préparation de votre dossier.</p></div>
+        </article>
+        <article class="process-item">
+            <div class="process-number">03</div>
+            <div><h3>La formalisation de votre business plan</h3><p>Structurer les éléments essentiels de votre projet et de son organisation.</p></div>
+        </article>
+        <article class="process-item">
+            <div class="process-number">04</div>
+            <div><h3>Les statuts et démarches administratives</h3><p>Accompagner la préparation des documents et des formalités liées à la création.</p></div>
+        </article>
+        <article class="process-item">
+            <div class="process-number">05</div>
+            <div><h3>L’organisation administrative et comptable</h3><p>Mettre en place une organisation claire dès le démarrage de votre activité.</p></div>
+        </article>
+        <article class="process-item">
+            <div class="process-number">06</div>
+            <div><h3>La mise en place d’outils de gestion</h3><p>Définir les outils et méthodes nécessaires au suivi quotidien de votre entreprise.</p></div>
+        </article>
+        <article class="process-item">
+            <div class="process-number">07</div>
+            <div><h3>Le pilotage des premiers mois</h3><p>Vous accompagner dans la mise en place et le suivi de votre organisation après le lancement.</p></div>
+        </article>
+        <article class="process-item">
+            <div class="process-number">08</div>
+            <div><h3>Votre diagnostic première année</h3><p>Faire le point sur votre organisation et identifier les axes d’amélioration pour la suite.</p></div>
+        </article>
+    </div>
+</section>
+
+<section class="creation-note">
+    <div class="creation-note-inner">
+        <h2>Prêt à lancer votre projet ?</h2>
+        <p>Parlons de votre création d’entreprise et de l’organisation administrative dont vous avez besoin pour démarrer sereinement.</p>
+        <a href="index.html#contact">Prendre contact avec SOFYLEC</a>
+    </div>
+</section>
+
 </main>
+
 <footer>
 <div class="footer-container">
     <div>© 2026 SOFYLEC — Société de Gestion Administrative</div>
@@ -539,8 +760,8 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
 </footer>
 
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
