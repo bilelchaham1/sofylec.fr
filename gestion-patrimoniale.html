@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SOFYLEC — Gestion patrimoniale et accompagnement.">
+<title>Gestion patrimoniale et accompagnement | SOFYLEC</title>
+<style>
 
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:#25272a;background:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ================= HEADER ================= */
+header{
+    width:100%;
+    background:#202225;
+    border-bottom:1px solid #3b3d40;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.header-container{
+    max-width:1500px;
+    min-height:115px;
+    margin:auto;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:35px;
+}
+.logo-frame{
+    width:270px;
+    height:105px;
+    background:#eeeeee;
+    border:1px solid #d4d4d4;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex-shrink:0;
+}
+.logo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.08);
+}
+nav{display:flex;align-items:center;gap:32px}
+nav a{
+    color:#f3f3f3;
+    font-size:14px;
+    font-weight:700;
+    white-space:nowrap;
+    transition:.25s ease;
+}
+nav a:hover{color:#bfc1c4}
+.contact-button{
+    background:#f0f0f0;
+    color:#202225;
+    padding:17px 24px;
+}
+.contact-button:hover{background:#fff;color:#111}
+
+
+/* ================= MENU DÉROULANT SERVICES ================= */
+.nav-dropdown{
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:center;
+}
+.nav-dropdown-link{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+.dropdown-menu{
+    position:absolute;
+    top:calc(100% + 18px);
+    left:50%;
+    transform:translateX(-50%) translateY(8px);
+    width:360px;
+    background:#fff;
+    border-top:3px solid #202225;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    padding:10px 0;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+}
+.dropdown-menu a{
+    display:block;
+    padding:14px 22px;
+    color:#55575a;
+    font-size:13px;
+    font-weight:500;
+    line-height:1.35;
+    white-space:normal;
+    transition:background .2s ease,color .2s ease,padding-left .2s ease;
+}
+.dropdown-menu a:hover{
+    background:#f1f1f1;
+    color:#202225;
+    padding-left:28px;
+}
+@media(max-width:800px){
+    .nav-dropdown{width:auto}
+    .dropdown-menu{
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        transform:translateY(8px);
+        width:320px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu{
+        transform:translateY(0);
+    }
+}
+@media(max-width:560px){
+    .dropdown-menu{
+        width:290px;
+        left:50%;
+        transform:translateX(-50%) translateY(8px);
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu{
+        transform:translateX(-50%) translateY(0);
+    }
+}
+
+/* ================= HERO ================= */
+.hero{
+    min-height:700px;
+    padding:100px 7%;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 92% 20%,rgba(0,0,0,.035),transparent 29%),
+      radial-gradient(circle at 80% 80%,rgba(0,0,0,.025),transparent 34%),
+      linear-gradient(120deg,#eeeeee,#dcdcdc);
+}
+.hero:before,.hero:after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(32,34,37,.06);
+    border-radius:50%;
+    pointer-events:none;
+}
+.hero:before{width:680px;height:680px;right:-290px;top:-180px}
+.hero:after{width:520px;height:520px;right:-110px;top:-100px}
+.hero-content{max-width:900px;position:relative;z-index:2}
+.eyebrow{
+    text-transform:uppercase;
+    letter-spacing:5px;
+    font-size:12px;
+    font-weight:700;
+    color:#55575a;
+    margin-bottom:24px;
+}
+.hero h1{
+    font-size:clamp(52px,6vw,90px);
+    line-height:1;
+    letter-spacing:-3px;
+    font-weight:800;
+    margin-bottom:30px;
+}
+.hero h1 span{color:#55575a}
+.hero-description{
+    max-width:750px;
+    color:#55575a;
+    font-size:20px;
+    line-height:1.7;
+    margin-bottom:40px;
+}
+.hero-buttons{display:flex;gap:15px;flex-wrap:wrap}
+.btn-primary,.btn-secondary{
+    min-height:58px;
+    padding:0 28px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    font-weight:700;
+    transition:.3s ease;
+}
+.btn-primary{background:#202225;color:#fff;border:1px solid #202225}
+.btn-primary:hover{background:#55575a}
+.btn-secondary{border:1px solid #77797c}
+.btn-secondary:hover{background:#202225;color:#fff}
+
+/* ================= SECTIONS ================= */
+section{padding:100px 7%}
+.section-container{max-width:1350px;margin:auto}
+.section-label{
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:11px;
+    font-weight:700;
+    color:#77797c;
+    margin-bottom:20px;
+}
+.section-title{
+    font-size:clamp(36px,4vw,58px);
+    line-height:1.1;
+    color:#202225;
+    margin-bottom:25px;
+}
+.section-text{max-width:720px;font-size:17px;line-height:1.8;color:#66686b}
+
+/* ================= SERVICES ================= */
+.services{
+    background:#fff;
+    padding-top:105px;
+}
+.services-intro{margin-bottom:65px}
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:50px;
+    row-gap:70px;
+}
+.service{
+    text-align:center;
+    min-width:0;
+    position:relative;
+    cursor:pointer;
+}
+.service h3{
+    min-height:58px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    color:#303236;
+    font-size:21px;
+    line-height:1.18;
+    font-weight:700;
+    transition:.25s ease;
+}
+.service-media{
+    height:205px;
+    margin:14px auto 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transform:translateY(14px) scale(.93);
+    transition:opacity .35s ease,transform .35s ease;
+    pointer-events:none;
+}
+.service-media svg{
+    width:205px;
+    height:175px;
+    max-width:100%;
+    overflow:visible;
+}
+.service:hover .service-media,
+.service:focus-within .service-media{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+.service:hover h3{color:#111}
+.service-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-width:137px;
+    padding:10px 16px;
+    border-radius:13px;
+    background:#111;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    opacity:0;
+    transform:translateY(8px);
+    transition:.3s ease;
+}
+.service-button:before{
+    content:"✓";
+    width:17px;
+    height:17px;
+    border:1px solid #fff;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+}
+.service:hover .service-button,
+.service:focus-within .service-button{
+    opacity:1;
+    transform:translateY(0);
+}
+.service:hover .service-button:hover{background:#333}
+
+/* ================= COMPANY ================= */
+.company{background:#dedede}
+.company-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+.company-box{
+    background:#202225;
+    padding:55px;
+    color:#fff;
+    min-height:400px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.company-box h3{font-size:35px;margin-bottom:25px}
+.company-box p{color:#d6d6d6;line-height:1.8;font-size:16px}
+.values{margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.value{padding:20px;border-left:2px solid #77797c;background:rgba(255,255,255,.05)}
+.value strong{display:block;margin-bottom:6px;font-size:15px}
+.value span{font-size:13px;color:#c7c7c7}
+
+/* ================= SOLUTIONS ================= */
+.solutions{background:#fff}
+.solutions-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-top:55px;
+    border-top:1px solid #ddd;
+    border-left:1px solid #ddd;
+}
+.solution{
+    padding:35px 25px;
+    border-right:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    min-height:220px;
+    transition:.3s ease;
+}
+.solution:hover{background:#202225;color:#fff}
+.solution h3{font-size:20px;margin-bottom:15px}
+.solution p{font-size:14px;line-height:1.7;color:#6c6e71}
+.solution:hover p{color:#d5d5d5}
+
+/* ================= ACTUALITES ================= */
+.news{background:#eeeeee}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:55px}
+.news-card{background:#fff;padding:35px;border:1px solid #ddd}
+.news-date{
+    font-size:12px;font-weight:700;color:#77797c;
+    text-transform:uppercase;letter-spacing:2px;margin-bottom:20px
+}
+.news-card h3{font-size:22px;line-height:1.35;margin-bottom:18px}
+.news-card p{color:#66686b;line-height:1.7;font-size:15px}
+.news-link{display:inline-block;margin-top:25px;font-size:14px;font-weight:700}
+
+/* ================= CONTACT ================= */
+.contact{background:#202225;color:#fff}
+.contact .section-title{color:#fff}
+.contact .section-label{color:#bfc1c4}
+.contact .section-text{color:#ccc}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.contact-form{display:grid;gap:15px}
+.contact-form input,.contact-form textarea{
+    width:100%;padding:17px;border:1px solid #55575a;
+    background:#2a2c30;color:#fff;font-family:inherit;font-size:14px;outline:none
+}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#eee}
+.contact-form textarea{min-height:150px;resize:vertical}
+.contact-form button{
+    min-height:58px;border:1px solid #eee;background:#eee;color:#202225;
+    font-size:14px;font-weight:700;cursor:pointer
+}
+.contact-form button:hover{background:transparent;color:#fff}
+
+/* ================= FOOTER ================= */
+footer{background:#17181a;color:#9b9da0;padding:35px 7%}
+.footer-container{
+    max-width:1350px;margin:auto;display:flex;justify-content:space-between;
+    align-items:center;gap:20px;font-size:13px
+}
+.footer-container a{color:#cfcfcf;margin-left:20px}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1100px){
+    .header-container{padding:15px 5%;flex-wrap:wrap;justify-content:center}
+    nav{gap:20px;justify-content:center;flex-wrap:wrap}
+    .services-grid{grid-template-columns:repeat(2,1fr)}
+    .solutions-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:800px){
+    .header-container{min-height:auto}
+    .logo-frame{width:230px;height:90px}
+    nav{gap:15px}
+    nav a{font-size:12px}
+    .hero{padding:80px 7%;min-height:auto}
+    .company-grid,.contact-grid{grid-template-columns:1fr;gap:45px}
+    .news-grid{grid-template-columns:1fr}
+    .services-grid{grid-template-columns:repeat(2,1fr);column-gap:25px;row-gap:55px}
+    .solutions-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+    section{padding:75px 7%}
+    .services-grid{grid-template-columns:1fr}
+    .service-media{
+        opacity:1;
+        transform:none;
+        height:185px;
+    }
+    .service-button{
+        opacity:1;
+        transform:none;
+    }
+    .service h3{min-height:auto}
+    .hero h1{font-size:48px;letter-spacing:-2px}
+    .hero-description{font-size:17px}
+    .company-box{padding:35px 25px}
+    .values{grid-template-columns:1fr}
+    .footer-container{flex-direction:column;text-align:center}
+    .footer-container a{margin:0 8px}
+}
+
+/* Respect reduced motion */
+@media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important;transition:none!important}
+}
+
+
+.detail-hero{background:#202225;color:#fff;padding:110px 7% 95px;position:relative;overflow:hidden}
+.detail-hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-180px;top:-220px;box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.02)}
+.detail-inner{max-width:1180px;margin:auto;position:relative;z-index:1}
+.detail-kicker{text-transform:uppercase;letter-spacing:4px;font-size:12px;color:#bfc1c4;font-weight:700;margin-bottom:20px}
+.detail-hero h1{font-size:clamp(42px,6vw,76px);line-height:1.02;max-width:850px;margin-bottom:25px}
+.detail-hero p{font-size:18px;line-height:1.8;color:#d7d7d7;max-width:760px}
+.detail-section{padding:90px 7%;background:#fff}
+.detail-section.alt{background:#f4f4f4}
+.detail-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1.6fr;gap:70px}
+.detail-section h2{font-size:38px;line-height:1.15;margin-bottom:18px;color:#202225}
+.detail-section .lead{font-size:17px;line-height:1.8;color:#666}
+.detail-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.detail-card{padding:30px;background:#fff;border:1px solid #e2e2e2;transition:.25s ease}
+.detail-section:not(.alt) .detail-card{background:#f7f7f7}
+.detail-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+.detail-card h3{font-size:20px;margin-bottom:10px;color:#202225}
+.detail-card p{font-size:15px;line-height:1.7;color:#666}
+.detail-cta{background:#202225;color:#fff;padding:80px 7%;text-align:center}
+.detail-cta h2{font-size:40px;margin-bottom:18px}
+.detail-cta p{color:#d5d5d5;max-width:650px;margin:0 auto 30px;line-height:1.7}
+.detail-cta a{display:inline-block;background:#fff;color:#202225;padding:16px 26px;font-weight:700}
+.back-link{display:inline-block;margin-top:28px;color:#c9c9c9;font-size:14px}
+@media(max-width:800px){
+.detail-grid{grid-template-columns:1fr;gap:35px}
+.detail-cards{grid-template-columns:1fr}
+.detail-hero{padding:80px 6% 70px}
+.detail-section{padding:70px 6%}
+}
+
+</style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo-frame">
+            <img src="logo.png" alt="SOFYLEC - Société de Gestion Administrative">
+        </a>
+
+        <nav>
+            <a href="index.html">Accueil</a>
+            <div class="nav-dropdown">
+<a href="#services" class="nav-dropdown-link">Nos services</a>
+<div class="dropdown-menu">
+<a href="creation-entreprise.html">Création d’entreprise</a>
+<a href="gestion-quotidien.html">Gestion au quotidien</a>
+<a href="gestion-paie.html">Gestion paie, conseil, social RH</a>
+<a href="pilotage-entreprise.html">Pilotage d’entreprise</a>
+<a href="gestion-patrimoniale.html">Gestion patrimoniale et accompagnement</a>
+<a href="facturation-electronique.html">Être prêt pour la facturation électronique</a>
+</div>
+</div>
+
+            <a href="#societe">La société</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#actualites">Actualités</a>
+            <a href="#contact" class="contact-button">Nous contacter</a>
+        </nav>
+    </div>
+</header>
+<main>
+<section class="detail-hero">
+<div class="detail-inner">
+<div class="detail-kicker">SOFYLEC — Société de Gestion Administrative</div>
+<h1>Gestion patrimoniale et accompagnement</h1>
+<p>Une organisation administrative pensée pour accompagner vos projets professionnels et patrimoniaux.</p>
+<a href="index.html#services" class="back-link">← Retour à nos services</a>
+</div>
+</section>
+
+<section class="detail-section">
+<div class="detail-grid">
+<div>
+<div class="section-label">Notre accompagnement</div>
+<h2>Une organisation claire et professionnelle.</h2>
+<p class="lead">Nous vous accompagnons dans les tâches administratives liées à votre activité, avec une approche structurée, simple et adaptée à vos besoins.</p>
+</div>
+<div class="detail-cards">
+<article class="detail-card"><h3>Organisation des documents</h3><p>Centralisation et classement des documents nécessaires au suivi de vos projets.</p></article>
+<article class="detail-card"><h3>Suivi administratif</h3><p>Une gestion structurée des informations et échéances liées à vos dossiers.</p></article>
+<article class="detail-card"><h3>Coordination</h3><p>Facilitation des échanges avec les différents professionnels intervenant sur vos projets.</p></article>
+<article class="detail-card"><h3>Accompagnement</h3><p>Un suivi administratif personnalisé, adapté à la nature et à l’évolution de vos besoins.</p></article>
+</div>
+</div>
+</section>
+
+<section class="detail-cta">
+<h2>Besoin d’un accompagnement ?</h2>
+<p>Parlons de votre entreprise et de vos besoins administratifs. SOFYLEC vous accompagne avec une organisation adaptée à votre activité.</p>
+<a href="index.html#contact">Nous contacter</a>
+</section>
+</main>
+<footer>
+<div class="footer-container">
+    <div>© 2026 SOFYLEC — Société de Gestion Administrative</div>
+    <div>
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+    </div>
+</div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
