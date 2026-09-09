@@ -1,1 +1,697 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SOFYLEC — Société de Gestion Administrative. Gestion administrative, accompagnement et solutions digitales pour les entreprises.">
+  <title>SOFYLEC — Société de Gestion Administrative</title>
+
+  <style>
+    :root{
+      --dark:#252525;
+      --dark-2:#343434;
+      --mid:#6d6d6d;
+      --light:#f3f3f3;
+      --light-2:#e7e7e7;
+      --white:#ffffff;
+      --border:#d8d8d8;
+      --shadow:0 18px 50px rgba(0,0,0,.08);
+      --radius:3px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--dark);
+      background:#fff;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max), calc(100% - 40px));margin:auto}
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.97);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(10px);
+    }
+    .nav{
+      min-height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    /* Logo SVG intégré : aucun fichier image nécessaire */
+    .brand{
+      display:flex;
+      align-items:center;
+      min-width:210px;
+    }
+    .brand svg{width:210px;height:auto}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      font-size:14px;
+      font-weight:600;
+      color:#444;
+    }
+    .nav-links a{
+      padding:32px 0;
+      border-bottom:2px solid transparent;
+      transition:.25s;
+    }
+    .nav-links a:hover{border-color:#444;color:#111}
+    .nav-cta{
+      background:var(--dark);
+      color:#fff!important;
+      padding:12px 20px!important;
+      border-radius:2px;
+      border:1px solid var(--dark)!important;
+    }
+    .nav-cta:hover{background:#555!important}
+
+    .menu-btn{
+      display:none;
+      border:1px solid var(--border);
+      background:#fff;
+      padding:9px 12px;
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:650px;
+      background:
+        linear-gradient(90deg, rgba(35,35,35,.95), rgba(35,35,35,.76)),
+        radial-gradient(circle at 80% 25%, #858585 0, #3c3c3c 35%, #242424 75%);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:620px;height:620px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:50%;
+      right:-180px;top:-160px;
+      box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.018);
+    }
+    .hero-content{position:relative;z-index:2;max-width:760px;padding:100px 0}
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:12px;
+      color:#cfcfcf;
+      margin-bottom:20px;
+      font-weight:700;
+    }
+    h1{
+      font-size:clamp(42px,6vw,72px);
+      line-height:1.03;
+      letter-spacing:-2px;
+      margin-bottom:25px;
+      font-weight:700;
+    }
+    .hero p{
+      max-width:680px;
+      font-size:19px;
+      color:#dedede;
+      margin-bottom:34px;
+    }
+    .buttons{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 23px;
+      border:1px solid #fff;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s;
+    }
+    .btn.primary{background:#fff;color:#242424}
+    .btn.primary:hover{background:#ddd}
+    .btn.secondary{color:#fff}
+    .btn.secondary:hover{background:#fff;color:#242424}
+
+    /* INTRO */
+    .intro{padding:90px 0;background:#fff}
+    .intro-grid{
+      display:grid;
+      grid-template-columns:1fr 1.4fr;
+      gap:80px;
+      align-items:center;
+    }
+    .section-kicker{
+      color:#777;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:11px;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+    h2{
+      font-size:clamp(30px,4vw,46px);
+      line-height:1.12;
+      margin-bottom:20px;
+      letter-spacing:-1px;
+    }
+    .intro-text{color:#626262;font-size:17px}
+    .line{
+      width:70px;height:3px;background:#444;margin:25px 0;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      background:var(--border);
+      border:1px solid var(--border);
+    }
+    .stat{background:#f8f8f8;padding:25px}
+    .stat strong{font-size:31px;display:block}
+    .stat span{font-size:13px;color:#777}
+
+    /* SERVICES */
+    .section-gray{background:var(--light);padding:95px 0}
+    .section-head{text-align:center;max-width:750px;margin:0 auto 55px}
+    .section-head p{color:#6b6b6b;font-size:16px}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid #ddd;
+      padding:34px;
+      min-height:255px;
+      position:relative;
+      transition:.25s;
+    }
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .icon{
+      width:48px;height:48px;
+      border:1px solid #aaa;
+      display:grid;place-items:center;
+      font-weight:700;
+      color:#444;
+      margin-bottom:24px;
+      font-size:18px;
+    }
+    .card h3{font-size:20px;margin-bottom:10px}
+    .card p{color:#707070;font-size:14px}
+    .card a{
+      display:inline-block;
+      margin-top:20px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-weight:700;
+    }
+
+    /* ABOUT */
+    .about{padding:100px 0}
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:70px;
+      align-items:stretch;
+    }
+    .about-box{
+      background:#2d2d2d;
+      color:#fff;
+      padding:55px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .about-box p{color:#d0d0d0}
+    .about-list{display:grid;gap:15px;margin-top:28px}
+    .about-list div{
+      border-top:1px solid #555;
+      padding-top:13px;
+      font-size:14px;
+    }
+    .about-copy{padding:25px 0}
+    .about-copy p{color:#666;margin-bottom:20px}
+
+    /* DIGITAL */
+    .digital{
+      padding:95px 0;
+      background:#ededed;
+    }
+    .digital-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+    .digital-card{
+      background:#fff;
+      padding:30px;
+      border:1px solid #ddd;
+      min-height:185px;
+    }
+    .digital-card span{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:#888;
+    }
+    .digital-card h3{margin:12px 0 8px;font-size:18px}
+    .digital-card p{font-size:13px;color:#777}
+
+    /* NEWS */
+    .news{padding:100px 0}
+    .news-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .news-card{border:1px solid #ddd;background:#fff}
+    .news-image{
+      height:150px;
+      background:linear-gradient(135deg,#d8d8d8,#707070);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+    .news-body{padding:25px}
+    .date{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px}
+    .news-body h3{font-size:19px;margin:10px 0}
+    .news-body p{font-size:13px;color:#777}
+
+    /* CONTACT */
+    .contact{background:#292929;color:#fff;padding:90px 0}
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+    }
+    .contact p{color:#c9c9c9}
+    .contact-details{margin-top:28px;display:grid;gap:18px}
+    .contact-details strong{display:block;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:1px}
+    .contact-details span{color:#c5c5c5}
+    form{display:grid;gap:13px}
+    input,textarea{
+      width:100%;
+      border:1px solid #555;
+      background:#343434;
+      color:#fff;
+      padding:15px;
+      font:inherit;
+      outline:none;
+    }
+    input:focus,textarea:focus{border-color:#aaa}
+    textarea{min-height:140px;resize:vertical}
+    form button{
+      background:#fff;
+      color:#222;
+      border:0;
+      padding:15px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#1f1f1f;
+      color:#999;
+      border-top:1px solid #3b3b3b;
+      padding:25px 0;
+      font-size:12px;
+    }
+    .footer-inner{display:flex;justify-content:space-between;gap:20px}
+    .footer-links{display:flex;gap:20px}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .nav-links{
+        position:absolute;
+        left:20px;right:20px;top:88px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        background:#fff;
+        border:1px solid var(--border);
+        box-shadow:var(--shadow);
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{padding:16px 20px;border-bottom:1px solid #eee}
+      .nav-links a:last-child{border:0}
+      .menu-btn{display:block}
+      .intro-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+      .cards,.news-grid{grid-template-columns:1fr 1fr}
+      .digital-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:600px){
+      .container{width:min(var(--max),calc(100% - 28px))}
+      .nav{min-height:76px}
+      .brand svg{width:175px}
+      .nav-links{top:76px;left:14px;right:14px}
+      .hero{min-height:580px}
+      .hero-content{padding:75px 0}
+      .hero p{font-size:16px}
+      .cards,.news-grid,.digital-grid,.stats{grid-template-columns:1fr}
+      .section-gray,.digital,.news,.about,.intro,.contact{padding:70px 0}
+      .about-box{padding:35px 28px}
+      .footer-inner{flex-direction:column}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#accueil" aria-label="SOFYLEC">
+      <svg viewBox="0 0 420 110" role="img" aria-label="SOFYLEC Société de Gestion Administrative">
+        <g fill="#333">
+          <text x="5" y="63" font-family="Arial,Helvetica,sans-serif" font-size="63" font-weight="700">S</text>
+          <!-- O remplacé par un œil -->
+          <path d="M75 40 Q116 7 157 40 Q116 72 75 40Z" fill="none" stroke="#444" stroke-width="8"/>
+          <path d="M82 40 Q116 18 150 40 Q116 62 82 40Z" fill="none" stroke="#777" stroke-width="5"/>
+          <circle cx="116" cy="40" r="16" fill="#555"/>
+          <circle cx="122" cy="34" r="5" fill="#eee"/>
+          <text x="157" y="63" font-family="Arial,Helvetica,sans-serif" font-size="63" font-weight="700">FYLEC</text>
+        </g>
+        <line x1="7" y1="82" x2="412" y2="82" stroke="#555" stroke-width="2"/>
+        <text x="8" y="102" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#555">Société de Gestion Administrative</text>
+      </svg>
+    </a>
+
+    <button class="menu-btn" aria-label="Ouvrir le menu" onclick="toggleMenu()">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#services">Nos services</a>
+      <a href="#societe">La société</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#actualites">Actualités</a>
+      <a href="#contact" class="nav-cta">Nous contacter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ACCUEIL -->
+  <section class="hero" id="accueil">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">Société de Gestion Administrative</div>
+        <h1>Votre entreprise.<br>Notre organisation.</h1>
+        <p>
+          SOFYLEC accompagne les entreprises dans leur gestion administrative
+          afin de leur permettre de gagner du temps, de structurer leur activité
+          et de se concentrer sur leur développement.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#services">Découvrir nos services</a>
+          <a class="btn secondary" href="#contact">Parler à SOFYLEC</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="container intro-grid">
+      <div>
+        <div class="section-kicker">SOFYLEC</div>
+        <h2>Un partenaire administratif au quotidien.</h2>
+        <div class="line"></div>
+        <p class="intro-text">
+          Nous mettons notre savoir-faire au service des dirigeants et des entreprises
+          qui souhaitent une gestion plus simple, plus claire et mieux organisée.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>01</strong><span>Organisation</span></div>
+        <div class="stat"><strong>02</strong><span>Accompagnement</span></div>
+        <div class="stat"><strong>03</strong><span>Réactivité</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section-gray" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Notre savoir-faire</div>
+        <h2>Des services pensés pour votre entreprise</h2>
+        <p>
+          Une organisation administrative structurée pour vous faire gagner du temps
+          et vous aider à piloter votre activité avec davantage de sérénité.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">01</div>
+          <h3>Gestion administrative</h3>
+          <p>Classement, suivi des documents, courriers, dossiers et tâches administratives courantes.</p>
+          <a href="#contact">En savoir plus →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">02</div>
+          <h3>Facturation & suivi</h3>
+          <p>Organisation des devis et factures, suivi des règlements et relances administratives.</p>
+          <a href="#contact">En savoir plus →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">03</div>
+          <h3>Gestion documentaire</h3>
+          <p>Centralisation et organisation de vos documents pour retrouver rapidement l'information utile.</p>
+          <a href="#contact">En savoir plus →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">04</div>
+          <h3>Suivi fournisseurs</h3>
+          <p>Organisation des pièces, échéances et échanges administratifs avec vos fournisseurs.</p>
+          <a href="#contact">En savoir plus →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">05</div>
+          <h3>Accompagnement dirigeants</h3>
+          <p>Un appui administratif flexible adapté au fonctionnement et aux besoins de votre société.</p>
+          <a href="#contact">En savoir plus →</a>
+        </article>
+
+        <article class="card">
+          <div class="icon">06</div>
+          <h3>Solutions digitales</h3>
+          <p>Des méthodes et outils numériques pour simplifier vos échanges et fluidifier votre organisation.</p>
+          <a href="#solutions">Découvrir →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIETE -->
+  <section class="about" id="societe">
+    <div class="container about-grid">
+      <div class="about-box">
+        <div class="section-kicker" style="color:#aaa">Notre philosophie</div>
+        <h2>Simple. Sérieux. Efficace.</h2>
+        <p>
+          SOFYLEC place la proximité, la rigueur et la disponibilité au cœur
+          de son accompagnement.
+        </p>
+        <div class="about-list">
+          <div>✓ Une organisation claire</div>
+          <div>✓ Un interlocuteur disponible</div>
+          <div>✓ Des solutions adaptées</div>
+          <div>✓ Un accompagnement dans la durée</div>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <div class="section-kicker">La société</div>
+        <h2>Nous vous aidons à garder le contrôle.</h2>
+        <div class="line"></div>
+        <p>
+          La gestion administrative peut rapidement devenir chronophage.
+          Notre rôle est de prendre en charge les tâches qui ralentissent
+          votre quotidien et de vous aider à mettre en place une organisation
+          fiable.
+        </p>
+        <p>
+          Notre approche est volontairement professionnelle et personnalisée :
+          nous adaptons notre intervention à la taille, au fonctionnement et
+          aux priorités de chaque entreprise.
+        </p>
+        <a class="btn" style="background:#2d2d2d;color:#fff;border-color:#2d2d2d" href="#contact">Échanger avec nous</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="digital" id="solutions">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Nos solutions</div>
+        <h2>Une gestion plus simple, partout</h2>
+        <p>
+          Découvrez un environnement pensé pour centraliser vos informations
+          et faciliter votre organisation au quotidien.
+        </p>
+      </div>
+
+      <div class="digital-grid">
+        <div class="digital-card">
+          <span>Solution 01</span>
+          <h3>Documents</h3>
+          <p>Centralisez vos pièces et retrouvez vos documents rapidement.</p>
+        </div>
+        <div class="digital-card">
+          <span>Solution 02</span>
+          <h3>Facturation</h3>
+          <p>Suivez vos devis, factures et règlements depuis un espace organisé.</p>
+        </div>
+        <div class="digital-card">
+          <span>Solution 03</span>
+          <h3>Suivi administratif</h3>
+          <p>Gardez une vision claire de vos échéances et dossiers en cours.</p>
+        </div>
+        <div class="digital-card">
+          <span>Solution 04</span>
+          <h3>Accompagnement</h3>
+          <p>Bénéficiez d'un accompagnement humain lorsque vous en avez besoin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTUALITES -->
+  <section class="news" id="actualites">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Actualités</div>
+        <h2>Les informations de SOFYLEC</h2>
+        <p>Conseils, nouveautés et informations utiles pour les dirigeants.</p>
+      </div>
+
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="news-image">SOFYLEC</div>
+          <div class="news-body">
+            <div class="date">Actualité</div>
+            <h3>Bien organiser ses documents administratifs</h3>
+            <p>Quelques bonnes pratiques pour gagner du temps et retrouver facilement ses pièces.</p>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image">SOFYLEC</div>
+          <div class="news-body">
+            <div class="date">Conseil</div>
+            <h3>Les réflexes d'une bonne gestion</h3>
+            <p>Comment structurer son quotidien administratif avec une méthode simple et efficace.</p>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image">SOFYLEC</div>
+          <div class="news-body">
+            <div class="date">Entreprise</div>
+            <h3>Le digital au service de votre organisation</h3>
+            <p>Les outils numériques peuvent simplifier les échanges et améliorer le suivi.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <div class="section-kicker" style="color:#aaa">Contact</div>
+        <h2>Parlons de votre organisation.</h2>
+        <p>
+          Vous souhaitez déléguer une partie de votre gestion administrative ?
+          Contactez SOFYLEC pour échanger sur vos besoins.
+        </p>
+
+        <div class="contact-details">
+          <div>
+            <strong>Téléphone</strong>
+            <span>À compléter</span>
+          </div>
+          <div>
+            <strong>E-mail</strong>
+            <span>À compléter</span>
+          </div>
+          <div>
+            <strong>Adresse</strong>
+            <span>À compléter</span>
+          </div>
+        </div>
+      </div>
+
+      <form onsubmit="sendForm(event)">
+        <input type="text" placeholder="Nom / Société" required>
+        <input type="email" placeholder="Adresse e-mail" required>
+        <input type="tel" placeholder="Téléphone">
+        <textarea placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer ma demande</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> SOFYLEC — Société de Gestion Administrative</div>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  function sendForm(event){
+    event.preventDefault();
+    alert("Merci pour votre message. Le formulaire doit être relié à votre adresse e-mail ou à un service de formulaire avant sa mise en production.");
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
