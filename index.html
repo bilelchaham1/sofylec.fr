@@ -64,6 +64,82 @@ nav a:hover{color:#bfc1c4}
 }
 .contact-button:hover{background:#fff;color:#111}
 
+
+/* ================= MENU DÉROULANT SERVICES ================= */
+.nav-dropdown{
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:center;
+}
+.nav-dropdown-link{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+.dropdown-menu{
+    position:absolute;
+    top:calc(100% + 18px);
+    left:50%;
+    transform:translateX(-50%) translateY(8px);
+    width:360px;
+    background:#fff;
+    border-top:3px solid #202225;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    padding:10px 0;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+}
+.dropdown-menu a{
+    display:block;
+    padding:14px 22px;
+    color:#55575a;
+    font-size:13px;
+    font-weight:500;
+    line-height:1.35;
+    white-space:normal;
+    transition:background .2s ease,color .2s ease,padding-left .2s ease;
+}
+.dropdown-menu a:hover{
+    background:#f1f1f1;
+    color:#202225;
+    padding-left:28px;
+}
+@media(max-width:800px){
+    .nav-dropdown{width:auto}
+    .dropdown-menu{
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        transform:translateY(8px);
+        width:320px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu{
+        transform:translateY(0);
+    }
+}
+@media(max-width:560px){
+    .dropdown-menu{
+        width:290px;
+        left:50%;
+        transform:translateX(-50%) translateY(8px);
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu{
+        transform:translateX(-50%) translateY(0);
+    }
+}
+
 /* ================= HERO ================= */
 .hero{
     min-height:700px;
@@ -371,7 +447,17 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
 
         <nav>
             <a href="#accueil">Accueil</a>
-            <a href="#services">Nos services</a>
+            <div class="nav-dropdown">
+    <a href="#services" class="nav-dropdown-link">Nos services</a>
+    <div class="dropdown-menu">
+        <a href="#creation">Création d’entreprise</a>
+        <a href="#quotidien">Gestion au quotidien</a>
+        <a href="#paie">Gestion paie, conseil, social RH</a>
+        <a href="#pilotage">Pilotage d’entreprise</a>
+        <a href="#patrimoine">Gestion patrimoniale et accompagnement</a>
+        <a href="#facturation">Être prêt pour la facturation électronique</a>
+    </div>
+</div>
             <a href="#societe">La société</a>
             <a href="#solutions">Solutions</a>
             <a href="#actualites">Actualités</a>
@@ -414,7 +500,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
     <div class="services-grid">
 
         <article class="service" tabindex="0">
-            <h3>Gestion administrative</h3>
+            <h3 id="creation">Création d’entreprise</h3>
             <div class="service-media">
                 <svg viewBox="0 0 240 190" aria-hidden="true">
                     <rect x="55" y="30" width="130" height="130" rx="8" fill="#f1f1f1"/>
@@ -432,7 +518,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
         </article>
 
         <article class="service" tabindex="0">
-            <h3>Gestion au quotidien</h3>
+            <h3 id="quotidien">Gestion au quotidien</h3>
             <div class="service-media">
                 <svg viewBox="0 0 240 190" aria-hidden="true">
                     <rect x="38" y="38" width="164" height="105" rx="9" fill="#e9e9e9" stroke="#555" stroke-width="4"/>
@@ -449,7 +535,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
         </article>
 
         <article class="service" tabindex="0">
-            <h3>Facturation &amp; suivi</h3>
+            <h3 id="facturation">Facturation &amp; suivi</h3>
             <div class="service-media">
                 <svg viewBox="0 0 240 190" aria-hidden="true">
                     <rect x="61" y="25" width="118" height="142" rx="6" fill="#f3f3f3" stroke="#555" stroke-width="3"/>
@@ -466,7 +552,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
         </article>
 
         <article class="service" tabindex="0">
-            <h3>Gestion documentaire</h3>
+            <h3 id="paie">Gestion paie, conseil, social RH</h3>
             <div class="service-media">
                 <svg viewBox="0 0 240 190" aria-hidden="true">
                     <rect x="48" y="54" width="120" height="92" rx="7" fill="#e3e3e3" stroke="#555" stroke-width="3"/>
@@ -482,7 +568,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
         </article>
 
         <article class="service" tabindex="0">
-            <h3>Accompagnement dirigeants</h3>
+            <h3 id="pilotage">Pilotage d’entreprise</h3>
             <div class="service-media">
                 <svg viewBox="0 0 240 190" aria-hidden="true">
                     <circle cx="120" cy="70" r="29" fill="#d6d6d6"/>
@@ -497,7 +583,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
         </article>
 
         <article class="service" tabindex="0">
-            <h3>Organisation d'entreprise</h3>
+            <h3 id="patrimoine">Gestion patrimoniale et accompagnement</h3>
             <div class="service-media">
                 <svg viewBox="0 0 240 190" aria-hidden="true">
                     <rect x="42" y="45" width="156" height="100" rx="9" fill="#ededed" stroke="#555" stroke-width="3"/>
