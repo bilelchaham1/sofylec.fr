@@ -79,7 +79,7 @@ nav a:hover{color:#bfc1c4}
 }
 .dropdown-menu{
     position:absolute;
-    top:calc(100% + 18px);
+    top:100%;
     left:50%;
     transform:translateX(-50%) translateY(8px);
     width:360px;
@@ -118,7 +118,7 @@ nav a:hover{color:#bfc1c4}
     .nav-dropdown{width:auto}
     .dropdown-menu{
         position:absolute;
-        top:calc(100% + 10px);
+        top:100%;
         left:0;
         transform:translateY(8px);
         width:320px;
@@ -495,66 +495,74 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
 .creation-visual:before{width:390px;height:390px}
 .creation-visual:after{width:270px;height:270px}
 .creation-visual svg{width:250px;height:250px;position:relative;z-index:2}
- .creation-confidence{
-    background:#fff;
-    padding:85px 7% 70px;
+.creation-confidence{
+    background:#f0f0f0;
+    padding:90px 7%;
 }
 .creation-inner{max-width:1280px;margin:auto}
-.creation-heading{display:none}
+.creation-heading{
+    max-width:800px;
+    margin-bottom:45px;
+}
+.creation-heading h2{
+    font-size:clamp(35px,4vw,52px);
+    line-height:1.1;
+    margin-bottom:18px;
+}
+.creation-heading p{font-size:17px;color:#666;line-height:1.7}
 .confidence-grid{
     display:grid;
-    grid-template-columns:1fr 1.25fr;
-    gap:65px;
-    align-items:start;
-}
-.confidence-grid:before{
-    content:"";
-    grid-column:1;
-    grid-row:1 / span 2;
-    width:100%;
-    min-height:390px;
-    background:#f1f1f1;
-    border-radius:50%;
-    align-self:center;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 .confidence-card{
-    background:transparent;
-    padding:0;
-    border:0;
+    background:#fff;
+    padding:35px 30px;
+    border:1px solid #ddd;
 }
-.confidence-card .number{display:none}
-.confidence-card h3{font-size:21px;margin-bottom:14px}
-.confidence-card p{font-size:16px;line-height:1.65;color:#555}
-.confidence-card:nth-child(1),
-.confidence-card:nth-child(2),
-.confidence-card:nth-child(3){grid-column:2}
-.confidence-card:nth-child(1){grid-row:1}
-.confidence-card:nth-child(2){grid-row:2;margin-top:2px}
-.confidence-card:nth-child(3){grid-row:3;margin-top:2px}
+.confidence-card .number{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    color:#777;
+    margin-bottom:28px;
+}
+.confidence-card h3{font-size:22px;margin-bottom:13px}
+.confidence-card p{font-size:15px;line-height:1.7;color:#666}
 .creation-process{
-    padding:15px 7% 85px;
+    padding:95px 7%;
     background:#fff;
 }
-.process-header{display:none}
+.process-header{max-width:1280px;margin:0 auto 50px}
+.process-header h2{
+    font-size:clamp(35px,4vw,52px);
+    line-height:1.1;
+    margin-bottom:18px;
+}
+.process-header p{max-width:750px;color:#666;line-height:1.7;font-size:17px}
 .process-list{
     max-width:1280px;
     margin:auto;
-    border:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-top:1px solid #d9d9d9;
 }
 .process-item{
-    display:block;
-    padding:0 0 6px;
-    border:0;
+    display:grid;
+    grid-template-columns:65px 1fr;
+    gap:20px;
+    padding:30px 25px 30px 0;
+    border-bottom:1px solid #d9d9d9;
 }
-.process-number{display:inline;font-size:16px;font-weight:400;color:#666;margin-right:8px}
-.process-item h3{display:inline;font-size:16px;font-weight:400;margin:0;line-height:1.6}
-.process-item p{display:none}
-.creation-note{background:#e5e5e5}
-@media(max-width:850px){
-    .confidence-grid{grid-template-columns:1fr;gap:35px}
-    .confidence-grid:before{display:none}
-    .confidence-card:nth-child(1),.confidence-card:nth-child(2),.confidence-card:nth-child(3){grid-column:1;grid-row:auto}
+.process-item:nth-child(odd){border-right:1px solid #d9d9d9;padding-right:45px}
+.process-item:nth-child(even){padding-left:45px}
+.process-number{
+    font-size:22px;
+    font-weight:800;
+    color:#777;
 }
+.process-item h3{font-size:20px;margin-bottom:8px}
+.process-item p{font-size:14px;line-height:1.7;color:#666}
 .creation-note{
     background:#202225;
     color:#fff;
@@ -594,6 +602,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
         </a>
 
         <nav>
+            <a href="index.html">Accueil</a>
             <div class="nav-dropdown">
 <a href="index.html#services" class="nav-dropdown-link">Nos services</a>
 <div class="dropdown-menu">
@@ -616,59 +625,42 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
 
 <main>
 
-<section class="creation-hero" style="background:#e5e5e5;min-height:155px;padding:0 7%;display:flex;align-items:flex-start;justify-content:center;text-align:center;">
-    <div class="creation-hero-inner" style="max-width:1150px;padding-top:2px;">
-        <p style="font-size:21px;line-height:1.45;color:#111;">Faire appel à un Expert-Comptable, <strong>c’est mettre toutes les chances de son côté pour réussir.</strong></p>
+<section class="creation-hero">
+    <div class="creation-hero-inner">
+        <div class="section-label">Nos services</div>
+        <h1>Création d’entreprise</h1>
+        <p>Découvrez notre parcours pour la création de votre activité et bénéficiez d’un accompagnement structuré pour démarrer votre entreprise dans les meilleures conditions.</p>
     </div>
 </section>
 
-<section class="creation-intro" style="padding:105px 0 15px;background:#fff;">
-    <div class="creation-intro-inner" style="max-width:1280px;grid-template-columns:1fr 1.25fr;gap:55px;align-items:center;">
-        <div class="creation-visual" aria-hidden="true" style="min-height:390px;background:transparent;overflow:visible;">
-            <svg viewBox="0 0 420 360" style="width:100%;height:360px;max-width:430px;">
-                <circle cx="190" cy="180" r="150" fill="#f0f0f0"/>
-                <rect x="155" y="80" width="115" height="155" rx="8" fill="#fff" stroke="#777" stroke-width="3"/>
-                <rect x="170" y="96" width="65" height="8" rx="4" fill="#777"/>
-                <rect x="170" y="120" width="75" height="7" rx="3" fill="#aaa"/>
-                <rect x="170" y="140" width="62" height="7" rx="3" fill="#aaa"/>
-                <rect x="170" y="160" width="72" height="7" rx="3" fill="#aaa"/>
-                <circle cx="250" cy="190" r="27" fill="#e5e5e5"/>
-                <path d="M238 190l8 8 17-20" fill="none" stroke="#35a853" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M70 230h65" stroke="#777" stroke-width="3"/>
-                <path d="M75 220l25-28 20 18 30-45" fill="none" stroke="#777" stroke-width="3"/>
-                <path d="M75 250h48M75 265h38" stroke="#999" stroke-width="3"/>
-                <circle cx="85" cy="145" r="22" fill="#e8b18a"/>
-                <path d="M85 168v70" stroke="#111111" stroke-width="10" stroke-linecap="round"/>
-                <path d="M85 185l-25 24M85 185l25 18" stroke="#111111" stroke-width="8" stroke-linecap="round"/>
-                <path d="M85 238l-18 45M85 238l20 45" stroke="#55575a" stroke-width="8" stroke-linecap="round"/>
-                <circle cx="58" cy="210" r="4" fill="#e8b18a"/>
-                <circle cx="112" cy="204" r="4" fill="#e8b18a"/>
+<section class="creation-intro">
+    <div class="creation-intro-inner">
+        <div>
+            <div class="section-label">Votre projet</div>
+            <h2>Vous avez un projet de création d’entreprise ?</h2>
+            <p class="intro-text">
+                Vous êtes motivé et vous voulez franchir le pas maintenant ?
+                Faire appel à SOFYLEC, c’est mettre toutes les chances de votre côté
+                pour réussir votre lancement et construire une organisation solide dès le départ.
+            </p>
+        </div>
+
+        <div class="creation-visual" aria-hidden="true">
+            <svg viewBox="0 0 260 260">
+                <rect x="58" y="48" width="144" height="166" rx="8" fill="#eeeeee"/>
+                <rect x="78" y="73" width="90" height="12" rx="6" fill="#55575a"/>
+                <rect x="78" y="105" width="104" height="8" rx="4" fill="#aaa"/>
+                <rect x="78" y="126" width="78" height="8" rx="4" fill="#bbb"/>
+                <rect x="78" y="147" width="98" height="8" rx="4" fill="#aaa"/>
+                <circle cx="176" cy="177" r="30" fill="#d0d0d0"/>
+                <path d="M163 177l9 9 19-22" fill="none" stroke="#444" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M78 48v-15h55l15 15" fill="#c8c8c8"/>
             </svg>
         </div>
-        <div>
-            <h2 style="font-size:21px;margin-bottom:18px;">Confier votre projet à notre cabinet, c’est :</h2>
-            <ul style="margin:0 0 40px 22px;color:#555;font-size:17px;line-height:1.5;">
-                <li>Un accompagnement par des spécialistes</li>
-                <li>Un bouquet de services pour bien démarrer (outils, kits, logiciels)</li>
-                <li>Un tarif sans surprise</li>
-            </ul>
-            <h2 style="font-size:21px;margin-bottom:15px;">Notre accompagnement :</h2>
-            <ol style="margin:0 0 0 22px;color:#555;font-size:17px;line-height:1.45;">
-                <li>Un rendez-vous conseil</li>
-                <li>La collecte des informations</li>
-                <li>La formalisation de votre business plan</li>
-                <li>La recherche de financement</li>
-                <li>La rédaction des statuts et les démarches administratives</li>
-                <li>L’organisation administrative et comptable</li>
-                <li>La mise en place d’outils de gestion</li>
-                <li>Le pilotage de vos premiers mois d’activité</li>
-                <li>Votre diagnostic 1ère année</li>
-            </ol>
-        </div>
     </div>
 </section>
 
-<section class="creation-confidence" style="display:none;">
+<section class="creation-confidence">
     <div class="creation-inner">
         <div class="creation-heading">
             <div class="section-label">Pourquoi SOFYLEC ?</div>
@@ -696,7 +688,7 @@ footer{background:#17181a;color:#9b9da0;padding:35px 7%}
     </div>
 </section>
 
-<section class="creation-process" style="display:none;">
+<section class="creation-process">
     <div class="process-header">
         <div class="section-label">Notre accompagnement</div>
         <h2>Un parcours en 8 étapes.</h2>
